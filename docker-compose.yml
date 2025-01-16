@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  humanitz:
+    restart: always
+    container_name: humanitz
+    image: humanitz
+    volumes:
+      - ./server:/app
+    environment:
+      - PORT=7777
+      - PLAYERS=number_of_players(max 24) 
+      - SERVER_NAME=server_name
+      - SERVER_PASSWORD=password
+    networks:
+      - default
+    ports:
+      - "7777:7777/udp"
+      - "27015:27015/udp"
